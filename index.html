@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karthik | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .section-padding {
+            padding: 90px 0;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+        }
+        .profile-img {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .skill-icon {
+            font-size: 40px;
+            color: #0d6efd;
+        }
+        .project-card:hover {
+            transform: scale(1.04);
+            transition: 0.3s;
+        }
+        footer {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Karthik</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero text-white text-center section-padding" style="margin-top:56px;">
+    <div class="container">
+        <img src="cropped_circle_image.png" class="profile-img mb-4">
+        <h1 class="fw-bold">Karthik</h1>
+        <p class="lead">Pre Final Year Student | Full Stack Developer</p>
+        <p class="opacity-75">
+            Building scalable web applications & intelligent systems
+        </p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+                <h2 class="fw-bold mb-4">About Me</h2>
+                <p class="fs-5 text-muted">
+                    I am a pre-final year engineering student with a strong interest in
+                    <strong>Full Stack Web Development</strong> and <strong>Artificial Intelligence</strong>.
+                    I enjoy developing responsive, user-friendly web applications and working on
+                    intelligent systems using modern technologies.
+                </p>
+                <p class="fs-5 text-muted">
+                    I have hands-on experience with frontend and backend frameworks, databases,
+                    and multiple programming languages. I am passionate about problem-solving,
+                    continuous learning, and applying theoretical concepts to real-world projects.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="bg-light section-padding">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Skills & Technologies</h2>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100 text-center">
+                    <i class="bi bi-code-slash skill-icon"></i>
+                    <h5 class="mt-3 fw-semibold">Development</h5>
+                    <p class="text-muted">
+                        Full Stack Web Development<br>
+                        Django • React<br>
+                        RESTful APIs
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100 text-center">
+                    <i class="bi bi-braces skill-icon"></i>
+                    <h5 class="mt-3 fw-semibold">Programming</h5>
+                    <p class="text-muted">
+                        Java<br>
+                        Python<br>
+                        C Programming
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100 text-center">
+                    <i class="bi bi-database skill-icon"></i>
+                    <h5 class="mt-3 fw-semibold">Databases</h5>
+                    <p class="text-muted">
+                        DBMS Concepts<br>
+                        SQL Queries<br>
+                        Data Modeling
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="glass-card p-4 h-100 text-center">
+                    <i class="bi bi-cpu skill-icon"></i>
+                    <h5 class="mt-3 fw-semibold">Artificial Intelligence</h5>
+                    <p class="text-muted">
+                        Machine Learning<br>
+                        Deep Learning<br>
+                        Model Training & Evaluation
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="glass-card p-4 h-100 text-center">
+                    <i class="bi bi-tools skill-icon"></i>
+                    <h5 class="mt-3 fw-semibold">Tools & Practices</h5>
+                    <p class="text-muted">
+                        Git & GitHub<br>
+                        Responsive Design<br>
+                        Problem Solving
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section-padding">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Projects</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card shadow project-card h-100">
+                    <div class="card-body">
+                        <h5>Student Portfolio Website</h5>
+                        <p class="text-muted">
+                            Designed and developed a responsive personal portfolio website using
+                            Bootstrap to showcase skills, projects, and contact information with
+                            a clean and professional UI.
+                        </p>
+                        <span class="badge bg-primary">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow project-card h-100">
+                    <div class="card-body">
+                        <h5>E-Commerce Web Application</h5>
+                        <p class="text-muted">
+                            Developed a Django-based e-commerce web application featuring user
+                            authentication, product management, and database integration using ORM.
+                        </p>
+                        <span class="badge bg-success">Django</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow project-card h-100">
+                    <div class="card-body">
+                        <h5>Machine Learning Prediction System</h5>
+                        <p class="text-muted">
+                            Built a machine learning prediction system using Python involving
+                            data preprocessing, model training, and evaluation on real datasets.
+                        </p>
+                        <span class="badge bg-warning text-dark">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-dark text-white section-padding">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Contact</h2>
+        <p><i class="bi bi-envelope"></i> karthik25@email.com</p>
+        <p><i class="bi bi-phone"></i> +91 6364576879</p>
+        <p><i class="bi bi-geo-alt"></i> India</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white text-center p-3">
+    © 2026 Karthik | Professional Portfolio
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
