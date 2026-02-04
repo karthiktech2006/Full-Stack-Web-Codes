@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KCET Learning – Quiz Home</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+}
+
+.header {
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+    font-size: 22px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.info {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.info p {
+    margin: 8px 0;
+}
+
+.instructions {
+    background: #f9fafb;
+    padding: 20px;
+    border-left: 5px solid #2563eb;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    KCET Learning – Online Quiz Portal
+</div>
+
+<div class="container">
+
+    <h2>Quiz Details</h2>
+
+    <div class="info">
+        <p><b>Quiz Name:</b> Web Technology Quiz</p>
+        <p><b>Topic:</b> HTML, jQuery & JavaScript</p>
+        <p><b>Total Questions:</b> 4</p>
+        <p><b>Question Type:</b> Multiple Choice</p>
+        <p><b>Marks:</b> 1 mark per question</p>
+    </div>
+
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <ul>
+            <li>Each question carries 1 mark.</li>
+            <li>No negative marking.</li>
+            <li>You can navigate between questions.</li>
+            <li>Result will be shown after submission.</li>
+        </ul>
+    </div>
+
+    <button onclick="startQuiz()">Start Exam</button>
+
+</div>
+
+<script>
+function startQuiz(){
+    window.location.href = "quiz.html";
+}
+</script>
+
+</body>
+</html>

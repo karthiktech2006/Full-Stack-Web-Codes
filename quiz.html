@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KCET Learning – Online Exam</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    height: 100vh;
+}
+
+.header {
+    background: #1f2937;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+}
+
+.main {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.question-area {
+    flex: 3;
+    background: white;
+    padding: 30px;
+    border-right: 1px solid #ddd;
+}
+
+.question-number {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.question-text {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.options label {
+    display: block;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #fafafa;
+}
+
+.options label:hover {
+    background: #eef2ff;
+}
+
+.nav-buttons {
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background: #f9fafb;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+}
+
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.q-btn {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.q-btn.answered {
+    background: #d1fae5;
+    border-color: #10b981;
+}
+
+#result {
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+.result-box {
+    background: white;
+    display: inline-block;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    KCET Learning – Online Examination
+</div>
+
+<div class="main">
+
+    <div id="quiz" class="question-area">
+        <div class="question-number"></div>
+        <div class="question-text"></div>
+        <div class="options"></div>
+
+        <div class="nav-buttons">
+            <button id="prev">Previous</button>
+            <button id="next">Save & Next</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h3>Questions</h3>
+        <div class="question-grid"></div>
+    </div>
+
+</div>
+
+<div id="result">
+    <div class="result-box">
+        <h2>Exam Result</h2>
+        <p id="total"></p>
+        <p id="correct"></p>
+        <p id="wrong"></p>
+        <br>
+        <button onclick="location.href='home.html'">Back to Home</button>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+const questions = [
+    { q: "HTML stands for?", options: ["Hyper Text Markup Language", "High Tool Markup Language", "Hyperlinks Text Machine Language", "None"], answer: 0 },
+    { q: "Which symbol is used in jQuery?", options: ["#", "$", "@", "&"], answer: 1 },
+    { q: "Which jQuery method hides elements?", options: ["hide()", "remove()", "delete()", "clear()"], answer: 0 },
+    { q: "jQuery is written in?", options: ["Java", "Python", "JavaScript", "PHP"], answer: 2 }
+];
+
+let index = 0;
+let userAnswers = [];
+
+function loadQuestion(){
+    $(".question-number").text(`Question ${index+1} of ${questions.length}`);
+    $(".question-text").text(questions[index].q);
+    $(".options").html("");
+
+    $.each(questions[index].options, function(i, opt){
+        let checked = userAnswers[index] === i ? "checked" : "";
+        $(".options").append(`
+            <label>
+                <input type="radio" name="option" value="${i}" ${checked}>
+                ${opt}
+            </label>
+        `);
+    });
+    loadSidebar();
+}
+
+function loadSidebar(){
+    $(".question-grid").html("");
+    for(let i=0;i<questions.length;i++){
+        let cls = userAnswers[i] !== undefined ? "answered" : "";
+        $(".question-grid").append(`<button class="q-btn ${cls}" data-i="${i}">${i+1}</button>`);
+    }
+}
+
+$("#next").click(function(){
+    let selected = $("input[name='option']:checked").val();
+    if(selected !== undefined){
+        userAnswers[index] = parseInt(selected);
+    }
+
+    if(index < questions.length-1){
+        index++;
+        loadQuestion();
+    } else {
+        showResult();
+    }
+});
+
+$("#prev").click(function(){
+    if(index > 0){
+        index--;
+        loadQuestion();
+    }
+});
+
+$(document).on("click", ".q-btn", function(){
+    index = $(this).data("i");
+    loadQuestion();
+});
+
+function showResult(){
+    let correct = 0;
+    let wrong = 0;
+
+    for(let i=0;i<questions.length;i++){
+        if(userAnswers[i] === questions[i].answer){
+            correct++;
+        } else {
+            wrong++;
+        }
+    }
+
+    $(".main").hide();
+    $("#result").fadeIn();
+
+    $("#total").html(`<b>Total Questions:</b> ${questions.length}`);
+    $("#correct").html(`<b>Correct Answers:</b> ${correct}`);
+    $("#wrong").html(`<b>Wrong Answers:</b> ${wrong}`);
+}
+
+loadQuestion();
+
+});
+</script>
+
+</body>
+</html>
